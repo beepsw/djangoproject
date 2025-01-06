@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboards Financieros</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+
+    <div class="topbar">
+        <img class="topbar-logo" src="{% static 'images/SF-MUNICIPALIDAD-BLANCO-1536x1536-1-150x150.png' %}" alt="Logo Institucional">
+        <h1 class="topbar-title">Data Driven</h1>
+        <div class="topbar-user-menu">
+            <button class="user-button" onclick="toggleUserMenu()">Usuario</button>
+            <div class="user-dropdown" id="userDropdown">
+                <a href="#">Perfil</a>
+                <a href="#" onclick="logout()">Cerrar Sesión</a>
+            </div>
+        </div>
+    </div>
+    
+    <div class="sidebar">
+        <div class="logo">Dashboards</div>
+        <ul>
+            <li id="btn-honorarios" class="active"><a><i class="fa-solid fa-money-check-dollar"></i> Gestión Honorarios</a></li>
+            <li id="btn-flujo" ><a><i class="fa-solid fa-user-group"></i> Contrataciones</a></li>
+            <li id="btn-rentas"><a><i class="fa-solid fa-car"></i> Parking Automático</a></li>
+            <li id="btn-inventario"><a><i class="fas fa-box"></i> Inventario y Activos Fijos</a></li>
+            <li id="btn-conciliaciones"><a><i class="fa-solid fa-inbox"></i> Conciliaciones Bancarias</a></li>
+            <li id="btn-personal"><a><i class="fa-solid fa-user-tie"></i> Gestión de Personal</a></li>
+        </ul>
+    </div>
+    
+    <div class="content">
+        <div class="header">
+            <h1 id="page-title">Gestión Honorarios</h1>
+            <div class="user-menu">
+                <button class="user-button" onclick="toggleUserMenu()">Usuario</button>
+                <div class="user-dropdown" id="userDropdown">
+                    <a href="#">Perfil</a>
+                    <a href="#" onclick="logout()">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+        
+        <div id="dashboard-honorarios" class="dashboard active">
+            <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNDBjYmJhMzAtNzJjOS00ODBlLTgyOTktMTEwZWNiZDQwMzMyIiwidCI6IjUzMGM5NWRiLTMzMTEtNDI3Mi1hYzcxLTgyZmJhNjAwZTBiMSIsImMiOjR9" allowFullScreen="true"></iframe>
+        </div>
+        <div id="dashboard-flujo" class="dashboard">
+            <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMGVjZDY5YzMtOTc2Ny00OTNhLWFjMTAtNjM4ZDcxNzYyY2Y5IiwidCI6IjUzMGM5NWRiLTMzMTEtNDI3Mi1hYzcxLTgyZmJhNjAwZTBiMSIsImMiOjR9&pageName=205fa9065107473e5cc5" allowFullScreen="true"></iframe>
+        </div>
+        <div id="dashboard-rentas" class="dashboard">
+            <iframe src="{% static 'pdfs/Definición de Procesos Implementación de IA para detección de patentes.pdf' %}" allowFullScreen="true"></iframe>
+            <iframe src="{% static 'pdfs/Componentes y Justificacion Tecnica (fase piloto).pdf' %}" allowFullScreen="true"></iframe>
+            <iframe src="{% static 'pdfs/Comparativa de Diseños - Justificacion Tecnica.pdf' %}" allowFullScreen="true"></iframe>
+            <iframe src="{% static 'pdfs/Sistema de Reconocimiento de Patentes - prueba local.pdf' %}" allowFullScreen="true"></iframe>
+            <iframe src="{% static 'pdfs/Diagrama Procesos (Proyecto Smart Parking)- fase piloto.pdf' %}" allowFullScreen="true"></iframe>></iframe>
+            <iframe src="{% static 'pdfs/Documentación - Automatización de Procesamiento y Conciliación de Datos Financieros.pdf' %}" allowFullScreen="true"></iframe>></iframe>
+        </div>
+        <div id="dashboard-inventario" class="dashboard">
+            <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMzNhZDk1NzktMTFmZC00ZjczLTk2YzQtZTM5N2I4M2E4ZjE4IiwidCI6IjUzMGM5NWRiLTMzMTEtNDI3Mi1hYzcxLTgyZmJhNjAwZTBiMSIsImMiOjR9" allowFullScreen="true"></iframe>
+        </div>
+        <div id="dashboard-conciliaciones" class="dashboard">
+            <iframe src="https://app.powerbi.com/view?r=eyJrIjoiMzM1OTNiODUtYzM2ZS00OTkxLWEwZTAtY2JjM2E4M2U1N2Y3IiwidCI6IjUzMGM5NWRiLTMzMTEtNDI3Mi1hYzcxLTgyZmJhNjAwZTBiMSIsImMiOjR9" allowFullScreen="true"></iframe>
+        </div>
+        <div id="dashboard-personal" class="dashboard">
+            <iframe src="https://app.powerbi.com/view?r=eyJrIjoiNzYzOTBiZjAtYmI3ZC00M2QzLTkzMTAtM2QyZDIzMjg5NjU5IiwidCI6IjUzMGM5NWRiLTMzMTEtNDI3Mi1hYzcxLTgyZmJhNjAwZTBiMSIsImMiOjR9" allowFullScreen="true"></iframe>
+        </div>
+
+        <div class="footer">
+            <p>&copy; 2024 Financial Dashboard. All rights reserved.</p>
+        </div>
+    </div>
+    
+    <script src="{% static 'js/script.js' %}"></script>
+</body>
+</html>

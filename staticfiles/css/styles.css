@@ -1,0 +1,311 @@
+body {
+    background-color: #f0f4f8; /* Gris claro */
+    color: #333333; /* Gris oscuro */
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 260px;
+    background: linear-gradient(135deg, #00264d, #113e86); /* Azul degradado */
+    color: white;
+    height: 100%;
+    position: fixed;
+    top: 70px; /* Debajo de la barra superior */
+    left: 0;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .logo {
+    font-size: 24px;
+    font-weight: bold;
+    padding: 20px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.2);
+    letter-spacing: 1px;
+}
+
+.sidebar ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar ul li {
+    padding: 15px 20px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.sidebar ul li.active {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-weight: bold;
+    border-left: 5px solid white;
+}
+
+.sidebar ul li:hover { 
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.02); 
+    transition: background-color 0.3s ease, transform 0.3s ease; 
+}
+
+.sidebar ul li a {
+    color: white;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.sidebar ul li a:hover {
+    color: #ffc107; /* Cambia a un amarillo vibrante */
+    transform: translateX(5px); /* Mueve ligeramente hacia la derecha */
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.sidebar ul li a i {
+    margin-right: 10px;
+}
+
+.content {
+    margin-left: 250px;
+    background-color: #f8fafc;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    width: calc(100% - 250px);
+    overflow-y: auto;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.dashboard {
+    display: none;
+}
+
+.dashboard.active {
+    display: block;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(1);
+    }
+}
+
+.footer {
+    background-color: #ffffff;
+    color: #000000;
+    padding: 15px;
+    text-align: center;
+    font-size: 14px;
+    border-top: 3px solid #ffffff;
+}
+
+.user-menu {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+}
+
+.user-button {
+    padding: 18px 28px;
+    background-color: #1952ac;
+    color: #ffffff;
+    border: none;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.user-button:hover {
+    background-color: #095c20;
+    transform: translateY(-2px);
+    transition: background-color 0.3s, transform 0.2s;
+}
+
+.user-dropdown {
+    display: none;
+    position: absolute;
+    top: 40px;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    z-index: 1000;
+    width: 200px;
+}
+
+.user-dropdown a {
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+    color: #333;
+    border-bottom: 1px solid #ddd;
+}
+
+.user-dropdown a:hover {
+    background-color: #f4f4f4;
+}
+
+.user-dropdown a:last-child {
+    border-bottom: none;
+}
+
+iframe {
+    width: 100%;
+    height: 80vh;
+    border: 1px solid #e2e8f0;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 200px;
+    }
+    .content {
+        margin-left: 200px;
+    }
+}
+@media (max-width: 480px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: static;
+    }
+    .content {
+        margin-left: 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+    }
+
+    .content {
+        margin-left: 0;
+        margin-top: 120px; /* Ajusta según la barra superior */
+    }
+
+    .topbar-user-menu {
+        right: 10px; /* Ajusta la posición en pantallas pequeñas */
+    }
+}
+
+.dashboard {
+    opacity: 0;
+    transform: scale(0.95); /* Escala inicial */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.dashboard.active {
+    opacity: 1;
+    transform: scale(1); /* Escala final */
+}
+
+.dashboard {
+    background: linear-gradient(135deg, #ffffff, #ffffff);
+    border-radius: 15px; /* Bordes redondeados */
+    padding: 0px; /* Espaciado interno */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.loading-spinner {
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #3498db;
+    border-radius: 50%; width: 40px;
+    height: 40px;
+    animation: spin 2s linear infinite;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+            transform: translate(-50%, -50%); 
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); } 
+}
+.topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 75px;
+    background: linear-gradient(135deg, #00264d, #00b386); /* Azul a verde */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+.topbar-logo {
+    height: 50px; /* Altura fija */
+    width: auto; /* Mantiene la proporción */
+}
+
+.topbar-title {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.topbar-user-menu {
+    display: flex;
+    align-items: center;
+    position: relative; /* Asegura que el desplazamiento sea relativo a su contenedor */
+    right: 75px; /* Mueve el botón 100 píxeles a la izquierda */
+}
+
+.user-button {
+    padding: 10px 20px;
+    background-color: #107058;
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: all 0.3s ease;
+}
+
+.user-button:hover {
+    background-color: #ffc107;
+    transform: translateY(-2px);
+}
+.content {
+margin-top: 80px; /* Altura de la barra superior */
+}
+
+.dashboard {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#page-title {
+    display: none; /* Oculta el elemento */
+}
